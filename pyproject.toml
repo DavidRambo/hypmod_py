@@ -8,6 +8,9 @@ repository = "http://github.com/DavidRambo/hypmod_py"
 readme = "README.md"
 license = "MIT"
 # packages = [{include = "hypmod_py"}]
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.2.1"
+
 
 [virtualenvs]
 in-project = true
