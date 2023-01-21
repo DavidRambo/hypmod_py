@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "hypmod-py"
+version = "0.1.0"
+description = "Following Jolowicz's hypermodern Python series"
+authors = ["David Rambo <davidrambo@mailfence.com>"]
+homepage = "http://github.com/DavidRambo/hypmod_py"
+repository = "http://github.com/DavidRambo/hypmod_py"
+readme = "README.md"
+license = "MIT"
+packages = [{include = "hypmod_py"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
