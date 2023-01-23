@@ -11,15 +11,11 @@ def runner():
     return click.testing.CliRunner()
 
 
-# @pytest.fixture
-# def mock_requests_get(mocker):
-#     """Uses unittest.mock via pytest-mock to replace requests.get."""
-#     mock = mocker.patch("requests.get")
-#     mock.return_value.__enter__.return_value.json.return_value = {
-#         "title": "Mock Title",
-#         "extract": "Mock text extract",
-#     }
-#     return mock
+@pytest.mark.e2e
+def test_main_succeeds_in_production_env(runner):
+    """Uses pytest's markers to create a custom mark 'e2e'."""
+    result = runner.invoke(console.main)
+    assert result.exit_code == 0
 
 
 def test_main_succeeds(runner, mock_requests_get):
