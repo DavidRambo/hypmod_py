@@ -1,3 +1,4 @@
+# pyproject.toml
 [tool.poetry]
 name = "hypmod-py"
 version = "0.1.0"
@@ -8,8 +9,10 @@ repository = "http://github.com/DavidRambo/hypmod_py"
 readme = "README.md"
 license = "MIT"
 # packages = [{include = "hypmod_py"}]
+
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.2.1"
+pytest-cov = "^4.0.0"
 
 
 [virtualenvs]
@@ -22,6 +25,16 @@ requests = "^2.28.2"
 
 [tool.poetry.scripts]
 hypmod-py = "hypmod_py.console:main"
+
+[tool.coverage.paths]
+source = ["src", "*/site-packages"]
+
+[tool.coverage.run]
+branch = true
+source = ["hypmod_py"]
+
+[tool.coverage.report]
+show_missing = true
 
 [build-system]
 requires = ["poetry-core"]
