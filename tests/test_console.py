@@ -64,6 +64,7 @@ def mock_wikipedia_random_page(mocker):
 
 
 def test_main_uses_specified_language(runner, mock_wikipedia_random_page):
-    """Ensures the main function in console.py uses the specefied language from the CLI."""
+    """Ensures the main function in console.py uses the specefied language from the CLI.
+    """
     runner.invoke(console.main, ["--language=pl"])
     mock_wikipedia_random_page.assert_called_with(language="pl")
