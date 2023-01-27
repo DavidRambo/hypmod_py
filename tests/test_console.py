@@ -31,8 +31,8 @@ def test_main_prints_title(runner, mock_requests_get):
 
 
 def test_main_invokes_requests_get(runner, mock_requests_get):
-    """Tests whether requests.get was invoked by checking whether the associated mock was
-    called."""
+    """Tests whether requests.get was invoked by checking whether the associated mock
+    was called."""
     runner.invoke(console.main)
     assert mock_requests_get.called
 
