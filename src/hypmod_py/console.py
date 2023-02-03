@@ -20,7 +20,7 @@ API_URL = "https://en.wikipedia.org/api/rest_v1/page/random/summary"
     show_default=True,
 )
 @click.version_option(version=__version__)
-def main(language):
+def main(language: str) -> None:
     """The hypermodern Python project."""
     data = wikipedia.random_page(language=language)
 
