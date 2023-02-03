@@ -11,7 +11,7 @@ package = "hypmod_py"
 
 
 @nox.session(python=["3.10", "3.11"])
-def tests(session):
+def tests(session) -> None:
     """Basic nox test.
 
     Exclude end-to-end tests by passing:
@@ -24,7 +24,7 @@ def tests(session):
 
 
 @nox.session(python=["3.10", "3.11"])
-def lint(session):
+def lint(session) -> None:
     args = session.posargs or locations
     session.install(
         "flake8",
@@ -38,14 +38,14 @@ def lint(session):
 
 
 @nox.session(python="3.11")
-def black(session):
+def black(session) -> None:
     args = session.posargs or locations
     session.install("black")
     session.run("black", *args)
 
 
 @nox.session(python="3.11")
-def safety(session):
+def safety(session) -> None:
     with tempfile.NamedTemporaryFile() as requirements:
         session.run(
             "poetry",
@@ -61,7 +61,7 @@ def safety(session):
 
 
 @nox.session(python=["3.10", "3.11"])
-def mypy(session):
+def mypy(session) -> None:
     args = session.posargs or locations
     session.install("mypy")
     session.run("mypy", *args)
@@ -72,7 +72,7 @@ def mypy(session):
         "3.10",
     ]
 )
-def pytype(session):
+def pytype(session) -> None:
     """Run the static type checker."""
     args = session.posargs or ["--disable=import-error", *locations]
     session.install("pytype")
@@ -80,7 +80,7 @@ def pytype(session):
 
 
 @nox.session(python=["3.10", "3.11"])
-def typeguard(session):
+def typeguard(session) -> None:
     args = session.posargs or ["-m", "not e2e"]
     session.run("poetry", "install", "--no-dev", external=True)
     session.install("pytest", "pytest-mock", "typeguard")
