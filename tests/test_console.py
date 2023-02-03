@@ -3,11 +3,15 @@ import click.testing
 import pytest
 import requests
 
+from click.testing import CliRunner
+from pytest_mock import MockFixture
+from unittest.mock import Mock
+
 from hypmod_py import console
 
 
 @pytest.fixture
-def runner():
+def runner() -> CliRunner:
     return click.testing.CliRunner()
 
 
@@ -59,12 +63,11 @@ def test_main_prints_message_on_request_error(runner, mock_requests_get):
 
 
 @pytest.fixture
-def mock_wikipedia_random_page(mocker):
+def mock_wikipedia_random_page(mocker: MockFixture) -> Mock:
     return mocker.patch("hypmod_py.wikipedia.random_page")
 
 
 def test_main_uses_specified_language(runner, mock_wikipedia_random_page):
-    """Ensures the main function in console.py uses the specefied language from the CLI.
-    """
+    """Ensures the main function in console.py uses the specefied language from the CLI."""
     runner.invoke(console.main, ["--language=pl"])
     mock_wikipedia_random_page.assert_called_with(language="pl")

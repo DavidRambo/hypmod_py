@@ -4,12 +4,12 @@ import pytest
 import click
 
 
-def test_random_page_returns_page(mock_requests_get):
+def test_random_page_returns_page(mock_requests_get) -> None:
     page = wikipedia.random_page()
     assert isinstance(page, wikipedia.Page)
 
 
-def test_random_page_uses_given_language(mock_requests_get):
+def test_random_page_uses_given_language(mock_requests_get) -> None:
     """Tests CLI argument for different language."""
     wikipedia.random_page(language="de")
     args, _ = mock_requests_get.call_args
