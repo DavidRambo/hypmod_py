@@ -6,6 +6,9 @@ import requests
 from dataclasses import dataclass
 
 
+API_URL: str = "https://{language}.wikipedia.org/api/rest_v1/page/random/summary"
+
+
 @dataclass
 class Page:
     title: str
@@ -13,8 +16,6 @@ class Page:
 
 
 schema = desert.schema(Page, meta={"unknown": marshmallow.EXCLUDE})
-
-API_URL: str = "https://{language}.wikipedia.org/api/rest_v1/page/random/summary"
 
 
 def random_page(language: str = "en") -> Page:
@@ -25,6 +26,6 @@ def random_page(language: str = "en") -> Page:
             response.raise_for_status
             data = response.json()
             return schema.load(data)
-    except requests.RequestException as error:
+    except (requests.RequestException, marshmallow.ValidationError) as error:
         message = str(error)
         raise click.ClickException(message)
