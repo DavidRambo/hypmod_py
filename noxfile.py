@@ -7,6 +7,8 @@ locations = "src", "tests", "noxfile.py"
 # default sessions to exclude black
 nox.options.sessions = "lint", "mypy", "pytype", "tests"
 
+package = "hypmod_py"
+
 
 @nox.session(python=["3.10", "3.11"])
 def tests(session):
@@ -74,3 +76,11 @@ def pytype(session):
     args = session.posargs or ["--disable=import-error", *locations]
     session.install("pytype")
     session.run("pytype", *args)
+
+
+@nox.session(python=["3.10", "3.11"])
+def typeguard(session):
+    args = session.posargs or ["-m", "not e2e"]
+    session.run("poetry", "install", "--no-dev", external=True)
+    session.install("pytest", "pytest-mock", "typeguard")
+    session.run("pytest", f"--typeguard-packages={package}", *args)
