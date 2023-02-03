@@ -4,7 +4,7 @@
 name = "attrs"
 version = "22.2.0"
 description = "Classes Without Boilerplate"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 files = [
@@ -259,6 +259,27 @@ tomli = {version = "*", optional = true, markers = "python_full_version <= \"3.1
 toml = ["tomli"]
 
 [[package]]
+name = "desert"
+version = "2022.9.22"
+description = "Deserialize to objects while staying DRY"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+files = [
+    {file = "desert-2022.9.22-py3-none-any.whl", hash = "sha256:cad7b6f1936448d26bde403882ec6855786b4d24d38d0ed4400e505ac8c5591f"},
+    {file = "desert-2022.9.22.tar.gz", hash = "sha256:0f45e098915e16452a269a1da0bcbbf31df0af2173899f1c097fb2e3b0265d89"},
+]
+
+[package.dependencies]
+attrs = "*"
+marshmallow = ">=3.0"
+typing-inspect = "*"
+
+[package.extras]
+dev = ["black", "build", "bump2version", "check-manifest", "coverage", "cuvner", "docutils", "importlib-metadata", "isort", "marshmallow-enum", "marshmallow-union", "mypy", "pex", "pygments", "pylint", "pytest", "pytest-cov", "pytest-sphinx", "pytest-travis-fold", "readme-renderer", "towncrier", "tox", "twine", "versioneer", "wheel"]
+test = ["coverage", "cuvner", "importlib-metadata", "marshmallow-enum", "marshmallow-union", "pytest", "pytest-cov", "pytest-sphinx", "pytest-travis-fold", "tox"]
+
+[[package]]
 name = "exceptiongroup"
 version = "1.1.0"
 description = "Backport of PEP 654 (exception groups)"
@@ -456,6 +477,27 @@ files = [
 ]
 
 [[package]]
+name = "marshmallow"
+version = "3.19.0"
+description = "A lightweight library for converting complex datatypes to and from native Python datatypes."
+category = "main"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "marshmallow-3.19.0-py3-none-any.whl", hash = "sha256:93f0958568da045b0021ec6aeb7ac37c81bfcccbb9a0e7ed8559885070b3a19b"},
+    {file = "marshmallow-3.19.0.tar.gz", hash = "sha256:90032c0fd650ce94b6ec6dc8dfeb0e3ff50c144586462c389b81a07205bedb78"},
+]
+
+[package.dependencies]
+packaging = ">=17.0"
+
+[package.extras]
+dev = ["flake8 (==5.0.4)", "flake8-bugbear (==22.10.25)", "mypy (==0.990)", "pre-commit (>=2.4,<3.0)", "pytest", "pytz", "simplejson", "tox"]
+docs = ["alabaster (==0.7.12)", "autodocsumm (==0.2.9)", "sphinx (==5.3.0)", "sphinx-issues (==3.0.1)", "sphinx-version-warning (==1.1.2)"]
+lint = ["flake8 (==5.0.4)", "flake8-bugbear (==22.10.25)", "mypy (==0.990)", "pre-commit (>=2.4,<3.0)"]
+tests = ["pytest", "pytz", "simplejson"]
+
+[[package]]
 name = "mccabe"
 version = "0.7.0"
 description = "McCabe checker, plugin for flake8"
@@ -583,7 +625,7 @@ test = ["codecov (>=2.0.5)", "coverage (>=4.2)", "flake8 (>=3.0.4)", "pytest (>=
 name = "packaging"
 version = "23.0"
 description = "Core utilities for Python packages"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7"
 files = [
@@ -900,7 +942,7 @@ files = [
 name = "typing-extensions"
 version = "4.4.0"
 description = "Backported and Experimental Type Hints for Python 3.7+"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7"
 files = [
@@ -912,7 +954,7 @@ files = [
 name = "typing-inspect"
 version = "0.8.0"
 description = "Runtime inspection utilities for typing module."
-category = "dev"
+category = "main"
 optional = false
 python-versions = "*"
 files = [
@@ -944,4 +986,4 @@ socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "a6c055880be5fd33cc29422bc2f0ea09c6bb64208f6bd751235643bd6eff3add"
+content-hash = "7170a8f17486be06cdfabda657f76f30089ef4b98993b629166f171c5d81181e"
