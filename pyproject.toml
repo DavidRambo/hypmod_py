@@ -17,6 +17,7 @@ pytest-mock = "^3.10.0"
 mypy = "^0.991"
 pytype = {version = "^2023.1.17", python = "3.10"}
 typeguard = "^2.13.3"
+flake8-annotations = "^3.0.0"
 
 
 [virtualenvs]
