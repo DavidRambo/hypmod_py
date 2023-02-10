@@ -19,6 +19,8 @@ pytype = {version = "^2023.1.17", python = "3.10"}
 typeguard = "^2.13.3"
 flake8-annotations = "^3.0.0"
 
+[tool.black]
+line-length = 88
 
 [virtualenvs]
 in-project = true
